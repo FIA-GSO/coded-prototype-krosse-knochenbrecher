@@ -1,0 +1,43 @@
+/* Grundlegende Resets */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: #fff;
+}
+
+/* Container für die Buttons */
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;   /* Buttons eher oben, nicht vollständig zentriert */
+    gap: 2.5rem;                  /* Abstand zwischen den Buttons */
+    padding-top: 2.5rem;          /* Abstand vom oberen Rand */
+    height: 100vh;                /* Volle Höhe (für flex-Layout) */
+}
+
+/* Basis-Button */
+.action-btn {
+    width: clamp(230px, 80%, 400px);  /* skaliert responsiv, min 230 px, max 400 px */
+    padding: 0.9rem 1rem;             /* vertikale & horizontale Innenabstände */
+    font-size: clamp(1.25rem, 4.5vw, 2rem); /* ca. 28–32 px auf dem Phone */
+    font-weight: 700;
+    border: none;
+    border-radius: 1.75rem;           /* Pillenform */
+    cursor: pointer;
+    transition: filter 0.15s ease;    /* kleines Feedback bei Klick */
+}
+
+/* Klick-Feedback */
+.action-btn:active {
+    filter: brightness(0.9);
+}
+
+/* Farbvarianten */
+.primary  { background: #7ab8ff; color: #000; }
+.secondary{ background: #d4d4d4; color: #000; }
