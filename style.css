@@ -5,6 +5,25 @@
     padding: 0;
 }
 
+/* CSS */
+.only-mobile  { display: none; }
+.only-desktop { display: block; }
+
+/* Smartphones / kleine Tablets (z. B. Breite < 768 px) */
+@media (max-width: 767.98px) {
+    .only-mobile  { display: block; }
+    .only-desktop { display: none; }
+}
+
+/* Optional: noch genauer über Eingabemethode */
+@media (pointer: coarse) {      /* primär Touch-Geräte */
+    .touch-only { display: block; }
+}
+@media (pointer: fine) {        /* Maus / Trackpad */
+    .touch-only { display: none; }
+}
+
+
 body {
     font-family: "Helvetica Neue", Arial, sans-serif;
     background: #fff;
