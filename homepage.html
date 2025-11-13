@@ -10,45 +10,9 @@
   <body>
     <main class="screen">
       <h1>Berichtsheft Tool</h1>
+
       <button class="action-btn primary">Neuer Eintrag</button>
       <button class="action-btn secondary">Liste Einträge</button>
     </main>
   </body>
-  <script>
-    (function () {
-      const container = document.querySelector(".calander_days");
-      if (!container) return;
-
-      // Initialize each day as an accessible toggle button
-      const days = container.querySelectorAll(".day");
-      days.forEach((d) => {
-        d.setAttribute("role", "button");
-        d.setAttribute("aria-pressed", "false");
-        d.tabIndex = 0;
-      });
-
-      // Toggle helper
-      function toggleDay(el) {
-        const selected = el.classList.toggle("is-selected");
-        el.setAttribute("aria-pressed", selected ? "true" : "false");
-      }
-
-      // Click to toggle
-      container.addEventListener("click", (e) => {
-        const day = e.target.closest(".day");
-        if (!day || !container.contains(day)) return;
-        toggleDay(day);
-      });
-
-      // Keyboard support: Enter/Space toggles
-      container.addEventListener("keydown", (e) => {
-        const target = e.target;
-        if (!target.classList || !target.classList.contains("day")) return;
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          toggleDay(target);
-        }
-      });
-    })();
-  </script>
 </html>
