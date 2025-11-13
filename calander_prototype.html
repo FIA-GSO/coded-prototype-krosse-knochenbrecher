@@ -1,48 +1,92 @@
-<div class="calander_grid">
-  <div class="calander_year">2025</div>
-  <div class="calander_month">November</div>
-  <div class="calander_weekdays">
-    <ul class="weekdays">
-      <li>Mo</li>
-      <li>Tu</li>
-      <li>We</li>
-      <li>Th</li>
-      <li>Fr</li>
-      <li>Sa</li>
-      <li>Su</li>
-    </ul>
-  </div>
-  <div class="calander_days">
-    <div class="day">1</div>
-    <div class="day">2</div>
-    <div class="day">3</div>
-    <div class="day">4</div>
-    <div class="day">5</div>
-    <div class="day">6</div>
-    <div class="day">7</div>
-    <div class="day">8</div>
-    <div class="day">9</div>
-    <div class="day">10</div>
-    <div class="day">11</div>
-    <div class="day">12</div>
-    <div class="day">13</div>
-    <div class="day">14</div>
-    <div class="day">15</div>
-    <div class="day">16</div>
-    <div class="day">17</div>
-    <div class="day">18</div>
-    <div class="day">19</div>
-    <div class="day">20</div>
-    <div class="day">21</div>
-    <div class="day">22</div>
-    <div class="day">23</div>
-    <div class="day">24</div>
-    <div class="day">25</div>
-    <div class="day">26</div>
-    <div class="day">27</div>
-    <div class="day">28</div>
-    <div class="day">29</div>
-    <div class="day">30</div>
-    <div class="day">31</div>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="calendar.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="calander_grid">
+      <div class="calander_year">2025</div>
+      <div class="calander_month">November</div>
+      <div class="calander_weekdays">
+        <ul class="weekdays">
+          <li>Mo</li>
+          <li>Tu</li>
+          <li>We</li>
+          <li>Th</li>
+          <li>Fr</li>
+          <li>Sa</li>
+          <li>Su</li>
+        </ul>
+      </div>
+      <div class="calander_days">
+        <div class="day">1</div>
+        <div class="day">2</div>
+        <div class="day">3</div>
+        <div class="day">4</div>
+        <div class="day">5</div>
+        <div class="day">6</div>
+        <div class="day">7</div>
+        <div class="day">8</div>
+        <div class="day">9</div>
+        <div class="day">10</div>
+        <div class="day">11</div>
+        <div class="day">12</div>
+        <div class="day">13</div>
+        <div class="day">14</div>
+        <div class="day">15</div>
+        <div class="day">16</div>
+        <div class="day">17</div>
+        <div class="day">18</div>
+        <div class="day">19</div>
+        <div class="day">20</div>
+        <div class="day">21</div>
+        <div class="day">22</div>
+        <div class="day">23</div>
+        <div class="day">24</div>
+        <div class="day">25</div>
+        <div class="day">26</div>
+        <div class="day">27</div>
+        <div class="day">28</div>
+        <div class="day">29</div>
+        <div class="day">30</div>
+        <div class="day">31</div>
+      </div>
+    </div>
+  </body>
+  <script>
+    (function () {
+      const container = document.querySelector(".calander_days");
+      if (!container) return;
+
+      const days = container.querySelectorAll(".day");
+      days.forEach((d) => {
+        d.setAttribute("role", "button");
+        d.setAttribute("aria-pressed", "false");
+        d.tabIndex = 0;
+      });
+
+      function toggleDay(el) {
+        const selected = el.classList.toggle("is-selected");
+        el.setAttribute("aria-pressed", selected ? "true" : "false");
+      }
+
+      container.addEventListener("click", (e) => {
+        const day = e.target.closest(".day");
+        if (!day || !container.contains(day)) return;
+        toggleDay(day);
+      });
+
+      container.addEventListener("keydown", (e) => {
+        const target = e.target;
+        if (!target.classList || !target.classList.contains("day")) return;
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleDay(target);
+        }
+      });
+    })();
+  </script>
+</html>
