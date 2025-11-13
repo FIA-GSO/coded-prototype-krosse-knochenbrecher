@@ -6,13 +6,13 @@
 }
 
 /* CSS */
-.only-mobile  { display: none; }
-.only-desktop { display: block; }
+.only-mobile  { display: none !important; }
+.only-desktop { display: flex !important; }  /* flex statt block, damit action-btn funktioniert */
 
 /* Smartphones / kleine Tablets (z. B. Breite < 768 px) */
 @media (max-width: 767.98px) {
-    .only-mobile  { display: block; }
-    .only-desktop { display: none; }
+    .only-mobile  { display: flex !important; }  /* flex statt block */
+    .only-desktop { display: none !important; }
 }
 
 /* Optional: noch genauer über Eingabemethode */
