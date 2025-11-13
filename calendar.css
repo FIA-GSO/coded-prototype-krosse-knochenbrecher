@@ -1,0 +1,126 @@
+.calander_grid {
+  --gap: 8px;
+  --radius: 10px;
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #2563eb;
+
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  grid-auto-rows: min-content;
+  gap: var(--gap);
+  padding: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--fg);
+}
+
+.calander_year,
+.calander_month,
+.calander_weekdays,
+.calander_days {
+  grid-column: 1 / -1;
+}
+
+.calander_year {
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 700;
+  text-align: center;
+  padding: 6px 0;
+}
+
+.calander_month {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 600;
+  text-align: center;
+  color: var(--muted);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.calander_weekdays .weekdays {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--gap);
+}
+
+.calander_weekdays .weekdays li {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 6px 0;
+}
+
+.calander_days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, minmax(80px, 1fr));
+  gap: var(--gap);
+}
+
+.calander_days .day {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fafafa;
+  position: relative;
+  padding: 8px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  font-weight: 600;
+  color: var(--fg);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 120ms ease, box-shadow 150ms ease,
+    transform 60ms ease;
+}
+
+.calander_days .day::before {
+  content: attr(data-day);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.day.is-today {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  background: #eef2ff;
+}
+
+.day.is-other-month {
+  opacity: 0.55;
+}
+
+.calander_days .day:hover {
+  background: #f3f4f6;
+}
+
+.calander_days .day:active {
+  transform: scale(0.98);
+}
+
+.calander_days .day:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.calander_days .day.is-selected,
+.calander_days .day[aria-pressed="true"] {
+  background: #eef2ff;
+  box-shadow: 0 0 0 2px var(--accent) inset, 0 0 0 2px var(--accent),
+    0 6px 18px rgba(37, 99, 235, 0.25);
+}
+
+@media (max-width: 480px) {
+  .calander_days {
+    grid-template-rows: repeat(5, minmax(60px, 1fr));
+  }
+}
