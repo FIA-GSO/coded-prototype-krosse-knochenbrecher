@@ -1,62 +1,85 @@
 /* Grundlegende Resets */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* CSS */
-.only-mobile  { display: none; }
-.only-desktop { display: block; }
+.only-mobile {
+  display: none;
+}
+.only-desktop {
+  display: block;
+}
 
 /* Smartphones / kleine Tablets (z. B. Breite < 768 px) */
 @media (max-width: 767.98px) {
-    .only-mobile  { display: block; }
-    .only-desktop { display: none; }
+  .only-mobile {
+    display: block;
+  }
+  .only-desktop {
+    display: none;
+  }
 }
 
 /* Optional: noch genauer über Eingabemethode */
-@media (pointer: coarse) {      /* primär Touch-Geräte */
-    .touch-only { display: block; }
+@media (pointer: coarse) {
+  /* primär Touch-Geräte */
+  .touch-only {
+    display: block;
+  }
 }
-@media (pointer: fine) {        /* Maus / Trackpad */
-    .touch-only { display: none; }
+@media (pointer: fine) {
+  /* Maus / Trackpad */
+  .touch-only {
+    display: none;
+  }
 }
-
 
 body {
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background: #fff;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #fff;
 }
 
 /* Container für die Buttons */
 .screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;   /* Buttons eher oben, nicht vollständig zentriert */
-    gap: 2.5rem;                  /* Abstand zwischen den Buttons */
-    padding-top: 2.5rem;          /* Abstand vom oberen Rand */
-    height: 100vh;                /* Volle Höhe (für flex-Layout) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Buttons eher oben, nicht vollständig zentriert */
+  gap: 2.5rem; /* Abstand zwischen den Buttons */
+  padding-top: 2.5rem; /* Abstand vom oberen Rand */
+  height: 100vh; /* Volle Höhe (für flex-Layout) */
 }
 
 /* Basis-Button */
 .action-btn {
-    width: clamp(230px, 80%, 400px);  /* skaliert responsiv, min 230 px, max 400 px */
-    padding: 0.9rem 1rem;             /* vertikale & horizontale Innenabstände */
-    font-size: clamp(1.25rem, 4.5vw, 2rem); /* ca. 28–32 px auf dem Phone */
-    font-weight: 700;
-    border: none;
-    border-radius: 1.75rem;           /* Pillenform */
-    cursor: pointer;
-    transition: filter 0.15s ease;    /* kleines Feedback bei Klick */
+  width: clamp(
+    230px,
+    80%,
+    400px
+  ); /* skaliert responsiv, min 230 px, max 400 px */
+  padding: 0.9rem 1rem; /* vertikale & horizontale Innenabstände */
+  font-size: clamp(1.25rem, 4.5vw, 2rem); /* ca. 28–32 px auf dem Phone */
+  font-weight: 700;
+  border: none;
+  border-radius: 1.75rem; /* Pillenform */
+  cursor: pointer;
+  transition: filter 0.15s ease; /* kleines Feedback bei Klick */
 }
 
 /* Klick-Feedback */
 .action-btn:active {
-    filter: brightness(0.9);
+  filter: brightness(0.9);
 }
 
 /* Farbvarianten */
-.primary  { background: #7ab8ff; color: #000; }
-.secondary{ background: #d4d4d4; color: #000; }
+.primary {
+  background: #7ab8ff;
+  color: #000;
+}
+.secondary {
+  background: #d4d4d4;
+  color: #000;
+}
