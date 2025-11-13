@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuer Eintrag</title>
+    <link rel="stylesheet" href="desktop.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Linke Seitenleiste -->
+        <aside class="sidebar">
+            <h1>Neuer Eintrag</h1>
+            <nav class="button-nav">
+                <button type="button" class="action-btn secondary">Betrieb</button>
+                <button type="button" class="action-btn secondary">Berufsschule</button>
+                <button type="button" class="action-btn primary">Frei/Urlaub</button>
+                <button type="button" class="action-btn secondary">Krank</button>
+            </nav>
+        </aside>
+
+        <!-- Rechter Hauptinhalt -->
+        <main class="main-content">
+            <h2>Frei/Urlaub</h2>
+
+            <form class="entry-form">
+                <div class="form-group">
+                    <label for="start-date">Startdatum</label>
+                    <input type="date" id="start-date" name="start-date">
+                </div>
+
+                <div class="form-group">
+                    <label for="end-date">Enddatum</label>
+                    <input type="date" id="end-date" name="end-date">
+                </div>
+
+                <div class="form-group">
+                    <label for="entry-type">Typ</label>
+                    <select id="entry-type" name="entry-type">
+                        <option>Urlaub</option>
+                        <option>Gleitzeit</option>
+                        <option>Sonderurlaub</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">Kommentar</label>
+                    <textarea id="comment" name="comment" rows="5" placeholder="Optionale Bemerkungen..."></textarea>
+                </div>
+
+                <a href="entry_succeeded.html" class="action-btn primary submit-btn" style="text-decoration: none; display: inline-block;">Eintrag speichern</a>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
