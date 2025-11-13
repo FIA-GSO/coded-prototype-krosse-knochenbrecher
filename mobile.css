@@ -92,6 +92,10 @@ input[type="date"].action-btn::-webkit-calendar-picker-indicator {
 .primary  { background: #7ab8ff; color: #000; }
 .secondary{ background: #d4d4d4; color: #000; }
 
+.secondary:hover {
+    background: #7ab8ff;
+}
+
 
 .navbar {
   background-color: #a3a3a3;
@@ -151,4 +155,21 @@ input[type="date"].action-btn::-webkit-calendar-picker-indicator {
 .comment-section textarea:focus {
     outline: 2px solid #7ab8ff;
     background: #e8e8e8;
+}
+
+/* Bestätigungsmeldung */
+.confirmation-message {
+    width: clamp(230px, 80%, 400px);
+    padding: 1.5rem;
+    background: #d4f4dd;
+    border: 2px solid #4caf50;
+    border-radius: 1.75rem;
+    text-align: center;
+}
+
+.confirmation-message p {
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+    font-weight: 600;
+    color: #2e7d32;
+    margin: 0;
 }
