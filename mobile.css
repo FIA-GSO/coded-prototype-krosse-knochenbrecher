@@ -29,27 +29,58 @@ body {
     background: #fff;
 }
 
+/* Überschrift oben */
+header {
+    padding: 1.5rem;
+    text-align: center;
+    background: #fff;
+}
+
+header h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin: 0;
+}
+
 /* Container für die Buttons */
 .screen {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;   /* Buttons eher oben, nicht vollständig zentriert */
-    gap: 2.5rem;                  /* Abstand zwischen den Buttons */
-    padding-top: 2.5rem;          /* Abstand vom oberen Rand */
-    height: 100vh;                /* Volle Höhe (für flex-Layout) */
+    justify-content: center;
+    gap: 2.5rem;
+    height: calc(100vh - 120px);  /* Höhe minus Header und Navbar */
 }
 
 /* Basis-Button */
 .action-btn {
-    width: clamp(230px, 80%, 400px);  /* skaliert responsiv, min 230 px, max 400 px */
-    padding: 0.9rem 1rem;             /* vertikale & horizontale Innenabstände */
-    font-size: clamp(1.25rem, 4.5vw, 2rem); /* ca. 28–32 px auf dem Phone */
+    width: clamp(230px, 80%, 400px);
+    padding: 0.9rem 1rem;
+    font-size: clamp(1.25rem, 4.5vw, 2rem);
     font-weight: 700;
     border: none;
-    border-radius: 1.75rem;           /* Pillenform */
+    border-radius: 1.75rem;
     cursor: pointer;
-    transition: filter 0.15s ease;    /* kleines Feedback bei Klick */
+    transition: filter 0.15s ease;
+    height: 6rem;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+/* Styling für input[type="date"] und select */
+input[type="date"].action-btn,
+select.action-btn {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input[type="date"].action-btn::-webkit-calendar-picker-indicator {
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 /* Klick-Feedback */
@@ -60,3 +91,64 @@ body {
 /* Farbvarianten */
 .primary  { background: #7ab8ff; color: #000; }
 .secondary{ background: #d4d4d4; color: #000; }
+
+
+.navbar {
+  background-color: #a3a3a3;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;              /* Flex-Container */
+  justify-content: center;    /* horizontal zentrieren */
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+  /* float: left; */          /* entfernen! */
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  flex: 1;                     /* gleichmäßige Breite für alle Links */
+}
+
+
+/* Change the color of links on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.navbar a.active {
+  background-color: #7ab8ff;
+  color: black;
+  font-weight: bold;
+}
+
+/* Kommentarfeld */
+.comment-section {
+    width: clamp(230px, 80%, 400px);
+}
+
+.comment-section textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: clamp(1rem, 3.5vw, 1.25rem);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    border: none;
+    border-radius: 1.75rem;
+    background: #f3f3f3;
+    color: #000;
+    resize: vertical;
+    min-height: 6rem;
+    border: #000 1px solid;
+}
+
+.comment-section textarea:focus {
+    outline: 2px solid #7ab8ff;
+    background: #e8e8e8;
+}

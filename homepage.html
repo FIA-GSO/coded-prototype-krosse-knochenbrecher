@@ -10,12 +10,20 @@
 
 </head>
 <body>
-    <main class="screen">
+    <header>
         <h1>Berichtsheft Tool</h1>
-        
-
-        <button class="action-btn primary">Neuer Eintrag</button>
-        <button class="action-btn secondary">Liste Einträge</button>
+    </header>
+    
+    <main class="screen">
+        <a href="mobile_newentry.html" class="action-btn primary only-mobile">Neuer Eintrag</a>
+        <a class="action-btn secondary only-mobile">Liste Einträge</a>
+        <a href="neuer-eintrag.html" class="action-btn primary only-desktop">Neuer Eintrag</a>
+        <a href="liste.html" class="action-btn secondary only-desktop">Liste Einträge</a>
     </main>
+    <div class="navbar only-mobile">
+        <a>Einstellungen</a>
+        <a class="active">Startseite</a>
+        <a>Profil</a>
+    </div>
 </body>
 </html>
