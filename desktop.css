@@ -106,6 +106,10 @@ textarea {
 .primary  { background: #7ab8ff; color: #000; }
 .secondary{ background: #d4d4d4; color: #000; }
 
+.secondary:hover {
+    background: #7ab8ff;
+}
+
 .button-nav .action-btn {
     width: 100%;
 }
